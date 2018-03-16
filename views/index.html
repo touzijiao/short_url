@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title> 短链接_稳定、强大、免费短网址服务</title>
+                <!-- 新 Bootstrap 核心 CSS 文件 -->
+                        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                        <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+                        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+                        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+                        <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+                        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+                        <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+                        <link rel="stylesheet" type="text/css" href="/public/style.css">
+        </head>
+        <body>
+
+          <div class="main">        
+                  <h4>短链接服务</h4>
+            <form action="/api/url" class="form-horizontal">
+                      <div class="input-group">
+                          <input type="text" class="form-control" type="text" name="source" placeholder="url input here">
+                          <span class="input-group-btn">
+                                    <button type="submit" class="btn blue">生成短链接</button>
+
+                          </span>
+                        </div>
+            </form>
+
+
+                  <div class="show">
+                   <div>
+                                 短链为:  <a href="http://127.0.0.1:8081/{{.json.Id}}" id="result" >http://127.0.0.1:8081/{{.json.Id}}</a>
+                   </div>           
+                <div>
+                   <a id="message" ></a>
+                </div>
+                 </div>
+        </div>
+
+        <!-- 通过Ajax请求接口并处理返回值 -->
+        <!-- 给上面"click"也就是点击生成短链接时绑定一个click事件 -->
+        		<!-- 发送一个get请求'/api/url'生成一个新的短连接,拼接，回调函数 -->
+        				<!-- 数据请求成功就打印短链接结果到result框内 -->
+        				<!-- 给result添加href属性 -->
+        				<!-- 失败就把错误信息打印到message框内 -->
+        			<!-- 清空result与message框 -->
+        <!--<script type="text/javascript">
+        	$('#click').click(function(){
+        		empty();
+
+        		var sourceUrl = $('input[name=source').val();
+        		$.get('/api/url', {'sourceUrl' : sourceUrl }, function(data){
+        			if (data.success) {
+        				var ShortUrl = window.location.host + "/" + data.result.ShortUrl;
+
+        				$('#result').html(ShortUrl);
+        				$('#result').attr("href", "http://" + ShortUrl);
+        			}else{
+        				$('#message').html(data.message);
+        			}
+
+        			function empty(){
+        				$('#result').html("");
+        				$('#message').html("");
+        			}
+        		})
+        	})
+        </script> -->
+
+        </body>
+</html>
